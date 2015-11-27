@@ -24,8 +24,8 @@ catSecVertexs = cms.EDProducer("CATSecVertexProducer",
     massMax = cms.double(3.40),
 )
 catSecVertexsV2 = cms.EDProducer("CATSecVertexV2Producer",
-    muonSrc  = cms.InputTag("Muons"),
-    elecSrc  = cms.InputTag("Electrons"),
+    muonSrc  = cms.InputTag("patMuons"),
+    elecSrc  = cms.InputTag("patElectrons"),
     trackSrc = cms.InputTag("generalTracks"),
     vertexLabel = cms.InputTag("catVertex"),
     track = cms.PSet(
