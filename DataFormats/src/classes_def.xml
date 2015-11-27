@@ -76,6 +76,12 @@
   <class name="edm::Wrapper<std::vector<cat::SecVertex> >"/>
   <class name="edm::Ptr<cat::SecVertex>"/>
 
+  <class name="cat::SecVertexV2"/>
+  <class name="std::vector<cat::SecVertexV2>"/>
+  <class name="edm::Wrapper<cat::SecVertexV2>"/>
+  <class name="edm::Wrapper<std::vector<cat::SecVertexV2> >"/>
+  <class name="edm::Ptr<cat::SecVertexV2>"/>
+
   <class name="reco::CompositePtrCandidateCollection" />
   <class name="edm::Wrapper<reco::CompositePtrCandidateCollection>" />
   <class name="edm::reftobase::Holder<reco::Candidate, reco::CompositePtrCandidateRef>" />

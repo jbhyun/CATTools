@@ -48,10 +48,18 @@ if runGenTop:
     process.catOut.outputCommands.extend(catEventContentTOPMC)
     if not useMiniAOD:
         process.catOut.outputCommands.extend(['keep *_catGenTops_*_*',])
+        process.catOut.outputCommands.extend(['keep *_muon*_*_*',])
+        process.catOut.outputCommands.extend(['keep *_electron*_*_*',])
+        process.catOut.outputCommands.extend(['keep *_generalTracks*_*_*',])
+        process.catOut.outputCommands.extend(['keep *_pat*_*_*',])
             
 if doSecVertex:
     process.load("TrackingTools.TransientTrack.TransientTrackBuilder_cfi")
-    process.catOut.outputCommands.extend(catEventContentSecVertexs)
+    if useMiniAOD :
+      process.catOut.outputCommands.extend(catEventContentSecVertexs)
+    else :
+      process.catOut.outputCommands.extend(catEventContentSecVertexsWithAOD)
+      
 
 from PhysicsTools.PatAlgos.slimming.miniAOD_tools import miniAOD_customizeOutput
 miniAOD_customizeOutput(process.catOut)

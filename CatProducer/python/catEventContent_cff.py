@@ -4,6 +4,7 @@ catEventContent = cms.untracked.vstring()
 catEventContentMC = cms.untracked.vstring()
 catEventContentTOPMC = cms.untracked.vstring()
 catEventContentSecVertexs = cms.untracked.vstring()
+catEventContentSecVertexsWithAOD = cms.untracked.vstring()
 
 catEventContent.extend([
     'drop *',
@@ -40,4 +41,8 @@ catEventContentTOPMC.extend([
 
 catEventContentSecVertexs.extend([
     'keep *_catSecVertexs_*_*',
+    ])
+catEventContentSecVertexsWithAOD.extend([
+    'keep *_catSecVertexs_*_*',
+    'keep *_catSecVertexsV2_*_*',
     ])
