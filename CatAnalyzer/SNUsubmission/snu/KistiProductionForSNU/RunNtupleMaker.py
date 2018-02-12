@@ -314,9 +314,9 @@ for line in snu_connect:
 
             
 os.system("rm check_snu_connection.txt")    
-if connected_cms3 == False:    
-    print "No connection to cms3: please make connection in screen and run script again"
-    quit()
+#if connected_cms3 == False:    
+#    print "No connection to cms3: please make connection in screen and run script again"
+#    quit()
 
 if copy_cluster:
     if connected_cluster == False:

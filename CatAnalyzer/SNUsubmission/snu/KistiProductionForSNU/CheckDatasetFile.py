@@ -75,12 +75,12 @@ def CheckDatasetFile(samplename, SendEmail):
         if "ssh-"+k_user+"@147.47.242.42" in line:
             connected_cms3=True
         
-    if not connected_cms3:
-        print "Script needs a connection to cms21 (147.47.242.42) machine. Follow instructions on twiki to make this connection."
-        os.system("rm check_snu_connection.txt")
-        sys.exit()
-    else:
-        os.system("rm check_snu_connection.txt")    
+#    if not connected_cms3:
+#        print "Script needs a connection to cms21 (147.47.242.42) machine. Follow instructions on twiki to make this connection."
+#        os.system("rm check_snu_connection.txt")
+#        sys.exit()
+#    else:
+#        os.system("rm check_snu_connection.txt")    
 
 
     os.system("scp -r " + datasetpath + " " + k_user+"@147.47.242.42://data1/LQAnalyzer_rootfiles_for_analysis/DataSetLists/datasets_"+version+"/")

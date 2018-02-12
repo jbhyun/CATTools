@@ -208,6 +208,25 @@ void CATTriggerProducer::produce(edm::Event& event, const edm::EventSetup&)
           keepObject = true;
           break;
         }
+        else{
+           if(trigObj.hasFilterLabel("hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered8")
+            ||trigObj.hasFilterLabel("hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter")
+            ||trigObj.hasFilterLabel("hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLDZFilter")
+            ||trigObj.hasFilterLabel("hltMu23TrkIsoVVLEle8CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered23")
+            ||trigObj.hasFilterLabel("hltMu23TrkIsoVVLEle8CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter")
+            ||trigObj.hasFilterLabel("hltMu23TrkIsoVVLEle8CaloIdLTrackIdLIsoVLDZFilter")
+            ||trigObj.hasFilterLabel("hltL3fL1sDoubleMu114L1f0L2f10OneMuL3Filtered17")
+            ||trigObj.hasFilterLabel("hltDiMuonGlb17Glb8RelTrkIsoFiltered0p4")
+            ||trigObj.hasFilterLabel("hltDiMuonGlb17Glb8RelTrkIsoFiltered0p4DzFiltered0p2")
+            ||trigObj.hasFilterLabel("hltL3fL1sDoubleMu114L1f0L2f10L3Filtered17")
+            ||trigObj.hasFilterLabel("hltDiMuonGlb17Trk8RelTrkIsoFiltered0p4")
+            ||trigObj.hasFilterLabel("hltDiMuonGlb17Trk8RelTrkIsoFiltered0p4DzFiltered0p2")             
+             )
+          {
+            keepObject=true;
+            break;
+          }
+        }
       }
       if ( keepObject ) break;
     }

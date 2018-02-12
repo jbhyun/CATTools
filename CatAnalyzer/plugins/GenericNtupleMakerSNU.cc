@@ -1014,7 +1014,10 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
       
       edm::Handle<vfloat> pdfweightsHandle;
       event.getByToken(pdfweightsToken_, pdfweightsHandle);
-      for ( auto& w : *pdfweightsHandle )  PDFWeight_.push_back(w);
+//      std::cout<<"pdfw"<<endl; int n=0;
+      for ( auto& w : *pdfweightsHandle ){  PDFWeight_.push_back(w);
+//                                            std::cout<<n<<" "<<w<<endl; n++;
+                                         }
       
       edm::Handle<vfloat> scaleupweightsHandle;
       event.getByToken(scaleupweightsToken_,scaleupweightsHandle);
@@ -1125,68 +1128,96 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
   }
 
   std::vector<string> vtrignames_tomatch_muon;
-  vtrignames_tomatch_muon.push_back("HLT_IsoMu24_eta2p1_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu17_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu20_v");
-  vtrignames_tomatch_muon.push_back("HLT_TkMu20_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu8_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu3_");
-  vtrignames_tomatch_muon.push_back("HLT_Mu17_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu24_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu8_TrkIsoVVL_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu17_TrkIsoVVL_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu24_TrkIsoVVL_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu27_v");
-  vtrignames_tomatch_muon.push_back("HLT_IsoMu20_v");
-  vtrignames_tomatch_muon.push_back("HLT_IsoTkMu20_v");
-  vtrignames_tomatch_muon.push_back("HLT_IsoMu22_v");
-  vtrignames_tomatch_muon.push_back("HLT_IsoTkMu22_v");
+//  vtrignames_tomatch_muon.push_back("HLT_IsoMu24_eta2p1_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu17_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu20_v");
+//  vtrignames_tomatch_muon.push_back("HLT_TkMu20_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu8_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu3_");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu17_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu24_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu8_TrkIsoVVL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu17_TrkIsoVVL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu24_TrkIsoVVL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu27_v");
+//  vtrignames_tomatch_muon.push_back("HLT_IsoMu20_v");
+//  vtrignames_tomatch_muon.push_back("HLT_IsoTkMu20_v");
+//  vtrignames_tomatch_muon.push_back("HLT_IsoMu22_v");
+//  vtrignames_tomatch_muon.push_back("HLT_IsoTkMu22_v");
   vtrignames_tomatch_muon.push_back("HLT_IsoMu24_v");
   vtrignames_tomatch_muon.push_back("HLT_IsoTkMu24_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu17_Mu8_DZ_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu17_TkMu8_DZ_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu17_Mu8_DZ_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu17_TkMu8_DZ_v");
   vtrignames_tomatch_muon.push_back("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_v");
+  vtrignames_tomatch_muon.push_back("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_v");
   vtrignames_tomatch_muon.push_back("HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_v");
   vtrignames_tomatch_muon.push_back("HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ_v");
-  vtrignames_tomatch_muon.push_back("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_muon.push_back("HLT_Ele12_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu17_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu8_TrkIsoVVL_Ele17_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_muon.push_back("HLT_DiMu9_Ele9_CaloIdL_TrackIdL_v");
-  vtrignames_tomatch_muon.push_back("HLT_TripleMu_12_10_5_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu8_DiEle12_CaloIdL_TrackIdL_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Ele12_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu17_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu8_TrkIsoVVL_Ele17_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_DiMu9_Ele9_CaloIdL_TrackIdL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_TripleMu_12_10_5_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu8_DiEle12_CaloIdL_TrackIdL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu17_Mu8_SameSign_DZ_v");
   vtrignames_tomatch_muon.push_back("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu17_Mu8_SameSign_DZ_v");
   vtrignames_tomatch_muon.push_back("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
   vtrignames_tomatch_muon.push_back("HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
-  vtrignames_tomatch_muon.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
+  vtrignames_tomatch_muon.push_back("HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_DZ_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
+//  vtrignames_tomatch_muon.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
+
   std::vector<string> vtrignames_tomatch_electron;
-  vtrignames_tomatch_electron.push_back("HLT_Ele25_WPTight_Gsf_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele25_WPTight_Gsf_v");
   vtrignames_tomatch_electron.push_back("HLT_Ele27_WPTight_Gsf_v");
-  vtrignames_tomatch_electron.push_back("HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_v");
-  vtrignames_tomatch_electron.push_back("HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
-  vtrignames_tomatch_electron.push_back("HLT_Ele32_eta2p1_WPTight_Gsf_v");
-  vtrignames_tomatch_electron.push_back("HLT_Ele12_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_electron.push_back("HLT_Ele17_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_electron.push_back("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
-  vtrignames_tomatch_electron.push_back("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_");
-  vtrignames_tomatch_electron.push_back("HLT_DoubleEle33_CaloIdL_GsfTrkIdVL_v");
-  vtrignames_tomatch_electron.push_back("HLT_Ele27_eta2p1_WPLoose_Gsf_v");
-  vtrignames_tomatch_electron.push_back("HLT_Ele27_eta2p1_WPLoose_Gsf_TriCentralPFJet30_v");
-  vtrignames_tomatch_electron.push_back("HLT_DiMu9_Ele9_CaloIdL_TrackIdL_v");
-  vtrignames_tomatch_electron.push_back("HLT_Mu8_DiEle12_CaloIdL_TrackIdL_v");
-  vtrignames_tomatch_electron.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_electron.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
+  vtrignames_tomatch_electron.push_back("HLT_Ele27_eta2p1_WPTight_Gsf_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele32_eta2p1_WPTight_Gsf_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele12_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele17_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_");
+//  vtrignames_tomatch_electron.push_back("HLT_DoubleEle33_CaloIdL_GsfTrkIdVL_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele27_eta2p1_WPLoose_Gsf_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Ele27_eta2p1_WPLoose_Gsf_TriCentralPFJet30_v");
+//  vtrignames_tomatch_electron.push_back("HLT_DiMu9_Ele9_CaloIdL_TrackIdL_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Mu8_DiEle12_CaloIdL_TrackIdL_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
   vtrignames_tomatch_electron.push_back("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_v");
   vtrignames_tomatch_electron.push_back("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
   vtrignames_tomatch_electron.push_back("HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_electron.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_v");
-  vtrignames_tomatch_electron.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
+  vtrignames_tomatch_electron.push_back("HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_DZ_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_v");
+//  vtrignames_tomatch_electron.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
   //vtrignames_tomatch_muon.push_back(CatVersion_);  
+
+
+  //Filter Matching
+  std::vector<string> vfilternames_tomatch_muon;
+  vfilternames_tomatch_muon.push_back("hltMu23TrkIsoVVLEle8CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered23");
+  vfilternames_tomatch_muon.push_back("hltMu23TrkIsoVVLEle8CaloIdLTrackIdLIsoVLDZFilter");
+  vfilternames_tomatch_muon.push_back("hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered8");
+  vfilternames_tomatch_muon.push_back("hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLDZFilter");
+  vfilternames_tomatch_muon.push_back("hltL3fL1sDoubleMu114L1f0L2f10OneMuL3Filtered17");
+  vfilternames_tomatch_muon.push_back("hltDiMuonGlb17Glb8RelTrkIsoFiltered0p4");
+  vfilternames_tomatch_muon.push_back("hltDiMuonGlb17Glb8RelTrkIsoFiltered0p4DzFiltered0p2");
+  vfilternames_tomatch_muon.push_back("hltL3fL1sDoubleMu114L1f0L2f10L3Filtered17");
+  vfilternames_tomatch_muon.push_back("hltDiMuonGlb17Trk8RelTrkIsoFiltered0p4");
+  vfilternames_tomatch_muon.push_back("hltDiMuonGlb17Trk8RelTrkIsoFiltered0p4DzFiltered0p2");
+
+  std::vector<string> vfilternames_tomatch_electron;
+  vfilternames_tomatch_electron.push_back("hltMu23TrkIsoVVLEle8CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter");
+  vfilternames_tomatch_electron.push_back("hltMu23TrkIsoVVLEle8CaloIdLTrackIdLIsoVLDZFilter");
+  vfilternames_tomatch_electron.push_back("hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter");
+  vfilternames_tomatch_electron.push_back("hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLDZFilter");
+  vfilternames_tomatch_electron.push_back("hltEle23Ele12CaloIdLTrackIdLIsoVLTrackIsoLeg1Filter");
+  vfilternames_tomatch_electron.push_back("hltEle23Ele12CaloIdLTrackIdLIsoVLTrackIsoLeg2Filter");
+  vfilternames_tomatch_electron.push_back("hltEle23Ele12CaloIdLTrackIdLIsoVLDZFilter");
+ 
 
   ////////// Fill MET/Muon/Electron variables
   edm::Handle<edm::View<cat::Muon> > muons;
@@ -1202,12 +1233,16 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
   event.getByToken(fatjetToken_, fatjets);
 
 
-  double el_pt_min= 4.;
+  double el_pt_min = 4.;
   double el_eta_max= 3.;
-  double mu_pt_min= 4.;
+  double mu_pt_min = 4.;
   double mu_eta_max= 3.;
-  double j_pt_min= 8.;
-  double j_eta_max= 5.5;
+  double j_pt_min  = 8.;
+  double j_eta_max = 5.5;
+  int    NLep=0, NEle=0, NMu=0;
+  double leadlep_pt_min = 0.;
+  bool   PassLeadLepPtCut=false, PassNLepCut=false, PassTrigSkim=false;
+  bool   TrigSkim=true;
   if(!makeSlim){
     el_pt_min= 0.;
     el_eta_max= 10.;
@@ -1216,8 +1251,37 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
     j_pt_min= 0.;
     j_eta_max= 10.;
   }
-  for (auto el : *electrons) {
+  if(TrigSkim){
+    el_pt_min = 5. , el_eta_max = 2.5;
+    mu_pt_min = 5. , mu_eta_max = 2.5;
+    j_pt_min  = 20., j_eta_max  = 2.4; 
+    leadlep_pt_min=17.; 
 
+    for (auto el : *electrons) {
+      if(el.pt() < el_pt_min        ) continue;
+      if(fabs(el.eta()) > el_eta_max) continue;
+      if(el.pt() != el.pt()         ) continue;
+  
+      if(el.pt()>leadlep_pt_min) PassLeadLepPtCut=true;
+      NEle++;
+    }
+  
+    for (auto mu : *muons) {
+      cat::Muon cat_mu(mu);
+      if(mu.pt() < mu_pt_min) continue;
+      if(fabs(mu.eta()) > mu_eta_max) continue;
+  
+      if(mu.pt()>leadlep_pt_min) PassLeadLepPtCut=true;
+      NMu++;
+    }
+    NLep=NMu+NEle;
+    if(NLep>=2) PassNLepCut=true;
+    if(PassNLepCut && PassLeadLepPtCut) PassTrigSkim=true;
+  }
+
+
+  for (auto el : *electrons) {
+    if(TrigSkim && (!PassTrigSkim) ) continue;
     if(el.pt() < el_pt_min) continue;
     if(fabs(el.eta()) > el_eta_max) continue;
     if(el.pt() != el.pt()) continue;
@@ -1279,6 +1343,7 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
 
   
   for (auto mu : *muons) {
+    if(TrigSkim && (!PassTrigSkim) ) continue;
 
     cat::Muon cat_mu(mu);
 
@@ -1334,6 +1399,7 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
   }
   
   for (auto jt : *jets) {
+    if(TrigSkim && (!PassTrigSkim) ) continue;
     if(jt.pt() < j_pt_min) continue;
     if(fabs(jt.eta()) > j_eta_max) continue;
     
@@ -1380,6 +1446,7 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
   }
   
   for (auto jt : *fatjets) {
+    if(TrigSkim) continue;
     if(jt.pt() < j_pt_min) continue;
     if(fabs(jt.eta()) > j_eta_max) continue;
 
@@ -1441,11 +1508,52 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
   edm::Handle<cat::METCollection> mets;         
   event.getByToken(metToken_, mets);
 
+
+  //TEST
+//  cout<<"New Event Starts"<<endl;
+//  int IdxObj=0;
+//  for (pat::TriggerObjectStandAlone trigObj : *triggerObjects) {
+//    IdxObj++; cout<<"Obj Index : "<<IdxObj<<endl;
+//    trigObj.unpackPathNames(trigNames);
+//    std::vector<std::string> pathNamesAll  = trigObj.pathNames(false);
+//    std::vector<std::string> pathNamesLast = trigObj.pathNames(true);
+////    for (unsigned h = 0, n = pathNamesAll.size(); h < n; ++h) {
+////      if ( pathNamesAll[h].find("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v") == 0 ){
+////        if (trigObj.hasPathName( pathNamesAll[h], true, true )){
+////          
+//////          if ( reco::deltaR(trigObj, el) < 0.1){
+//////    	eltrig+= "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v";
+//////          }
+////        }
+////      }
+////    }
+//
+//    std::cout << "\t   Collection: " << trigObj.collection() << std::endl;
+//    std::cout << "\t   Type IDs:   ";
+//    for (unsigned h = 0; h < trigObj.filterIds().size(); ++h) std::cout << " " << trigObj.filterIds()[h] ;
+//    std::cout << std::endl;
+//    // Print associated trigger filters
+//    std::cout << "\t   Filters:    ";
+//    for (unsigned h = 0; h < trigObj.filterLabels().size(); ++h) std::cout << " " << trigObj.filterLabels()[h];
+//    std::cout << std::endl;
+//  
+//    std::cout << "\t   Paths (" << pathNamesAll.size()<<"/"<<pathNamesLast.size()<<"):    ";
+//    int Count=0;
+//    for(unsigned int h=0; h<pathNamesAll.size(); h++){ Count++; if(Count>10){break;} std::cout << "   " << pathNamesAll[h]; }
+//    std::cout << std::endl<<endl;
+//
+//  }
+//  int muidx=0;
   
   double px_shift_muon_up(0.), px_shift_muon_down(0.), py_shift_muon_up(0.), py_shift_muon_down(0.), px_muon(0.), py_muon(0.), px_electron(0.), py_electron(0.) ;
   double  px_shift_electron_up(0.), px_shift_electron_down(0.), py_shift_electron_up(0.), py_shift_electron_down(0.);
   for (auto mu : *muons) {
+    if(TrigSkim && !(PassTrigSkim) ) continue;
+    //if(TrigSkim && !(PassLeadLepPtCut && PassNLepCut) ) continue;
+//    muidx++;
     std::string mutrig= "SKTriggerMatching[muon]:";
+//    cout<<endl;
+//    cout<<"SKTriggerMatching[muon]:"<<endl;
 
     for(unsigned int i =0; i< vtrignames_tomatch_muon.size(); i++){
       for (pat::TriggerObjectStandAlone trigObj : *triggerObjects) { 
@@ -1455,12 +1563,49 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
 	  if ( pathNamesAll[h].find(vtrignames_tomatch_muon.at(i)) == 0 ){
 	    if (trigObj.hasPathName( pathNamesAll[h], true, true )){
 	      // found trigger
-	      if ( reco::deltaR(trigObj, mu) < 0.1){
+	      if ( reco::deltaR(trigObj, mu) < 0.3){
 		mutrig+= vtrignames_tomatch_muon.at(i);
 	      }
 	    }
 	  }
 	}
+      }
+    }
+    for(unsigned int it_filter=0; it_filter<vfilternames_tomatch_muon.size(); it_filter++){
+      int ItObj=0;
+      for (pat::TriggerObjectStandAlone trigObj : *triggerObjects) {
+        ItObj++;
+	trigObj.unpackPathNames(trigNames);
+
+        for(unsigned int it_Pfilter=0; it_Pfilter<trigObj.filterLabels().size(); it_Pfilter++){
+	  if ( trigObj.filterLabels().at(it_Pfilter)==vfilternames_tomatch_muon.at(it_filter) ){
+            if( reco::deltaR(trigObj, mu) < 0.3 ){
+                mutrig+= trigObj.filterLabels().at(it_Pfilter);
+                break;
+//        	std::vector<std::string> pathNamesAll  = trigObj.pathNames(false);
+//        	std::vector<std::string> pathNamesLast  = trigObj.pathNames(true);
+//                cout<<trigObj.filterLabels().at(it_Pfilter)<<" Added"<<endl;
+//                cout<<vfilternames_tomatch_muon.at(it_filter)<<" in progress"<<endl;
+//
+//                std::cout<<"MuIdx:"<<muidx<<" pt:"<<mu.pt()<<" eta:"<<mu.eta()<<" phi:"<<mu.phi()<<endl;
+//                std::cout<<"FiltIdx:"<<it_filter<<" PFilId:"<<it_Pfilter<<" ObjIdx:"<<ItObj<<" pt:"<<trigObj.pt()<<" eta:"<<trigObj.eta()<<" phi:"<<trigObj.phi()<<endl;
+//                std::cout << "\t   Collection: " << trigObj.collection() << std::endl;
+//                std::cout << "\t   Type IDs:   ";
+//                for (unsigned h = 0; h < trigObj.filterIds().size(); ++h) std::cout << " " << trigObj.filterIds()[h] ;
+//                std::cout << std::endl;
+//                // Print associated trigger filters
+//                std::cout << "\t   Filters:    ";
+//                std::cout << " " << trigObj.filterLabels().size();
+//            //    for (unsigned h = 0; h < trigObj.filterLabels().size(); ++h) std::cout << " " << trigObj.filterLabels()[h];
+//                std::cout << std::endl;
+//              
+//                std::cout << "\t   Paths (" << pathNamesAll.size()<<"/"<<pathNamesLast.size()<<"):    ";
+//            //    int Count=0;
+//            //    for(unsigned int h=0; h<pathNamesAll.size(); h++){ Count++; std::cout << "   " << pathNamesAll[h]; }
+//                std::cout << std::endl<<endl;
+            }
+          }
+        }
       }
     }
     muon_trigmatch.push_back(mutrig);
@@ -1470,12 +1615,19 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
     px_shift_muon_down += mu.shiftedEnDown()*mu.px();
     py_shift_muon_up += mu.shiftedEnUp() *mu.py();
     py_shift_muon_down += mu.shiftedEnDown()*mu.py();
-    
   }
+
+
+
   
+//  int elidx=0;
   for (auto el : *electrons) {
+    if(TrigSkim && !(PassTrigSkim) ) continue;
+//    elidx++;
     if(el.pt() != el.pt()) continue;
     std::string eltrig= "SKTriggerMatching:";
+//    cout<<endl;
+//    cout<<"SKTriggerMatching:"<<endl;
     for(unsigned int i =0; i< vtrignames_tomatch_electron.size(); i++){
       for (pat::TriggerObjectStandAlone trigObj : *triggerObjects) {
 	trigObj.unpackPathNames(trigNames);
@@ -1484,12 +1636,47 @@ void GenericNtupleMakerSNU::analyze(const edm::Event& event, const edm::EventSet
 	  if ( pathNamesAll[h].find(vtrignames_tomatch_electron.at(i)) == 0 ){
 	    if (trigObj.hasPathName( pathNamesAll[h], true, true )){
 	      
-	      if ( reco::deltaR(trigObj, el) < 0.1){
+	      if ( reco::deltaR(trigObj, el) < 0.3){
 		eltrig+= vtrignames_tomatch_electron.at(i);
 	      }
 	    }
 	  }
 	}
+      }
+    }
+    for(unsigned int it_filter=0; it_filter<vfilternames_tomatch_electron.size(); it_filter++){
+      for (pat::TriggerObjectStandAlone trigObj : *triggerObjects) {
+	trigObj.unpackPathNames(trigNames);
+
+        for(unsigned int it_Pfilter=0; it_Pfilter<trigObj.filterLabels().size(); it_Pfilter++){
+	  if ( trigObj.filterLabels().at(it_Pfilter)==vfilternames_tomatch_electron.at(it_filter) ){
+            if( reco::deltaR(trigObj, el) < 0.3 ){
+                eltrig+= trigObj.filterLabels().at(it_Pfilter);
+                break;
+//                cout<<trigObj.filterLabels().at(it_Pfilter)<<" Added"<<endl;
+//        	std::vector<std::string> pathNamesAll  = trigObj.pathNames(false);
+//        	std::vector<std::string> pathNamesLast  = trigObj.pathNames(true);
+//
+//                std::cout<<"ElIdx:"<<elidx<<" pt:"<<el.pt()<<" eta:"<<el.eta()<<" phi:"<<el.phi()<<endl;
+//                std::cout<<"FiltIdx:"<<it_Pfilter<<" pt:"<<trigObj.pt()<<" eta:"<<trigObj.eta()<<" phi:"<<trigObj.phi()<<endl;
+//                std::cout << "\t   Collection: " << trigObj.collection() << std::endl;
+//                std::cout << "\t   Type IDs:   ";
+//                for (unsigned h = 0; h < trigObj.filterIds().size(); ++h) std::cout << " " << trigObj.filterIds()[h] ;
+//                std::cout << std::endl;
+//                // Print associated trigger filters
+//                std::cout << "\t   Filters:    ";
+//                std::cout << " " << trigObj.filterLabels().size();
+//                //for (unsigned h = 0; h < trigObj.filterLabels().size(); ++h) std::cout << " " << trigObj.filterLabels()[h];
+//                std::cout << std::endl;
+//              
+//                std::cout << "\t   Paths (" << pathNamesAll.size()<<"/"<<pathNamesLast.size()<<"):    ";
+//                //int Count=0;
+//                //for(unsigned int h=0; h<pathNamesAll.size(); h++){ Count++; std::cout << "   " << pathNamesAll[h]; }
+//                std::cout << std::endl<<endl;
+
+            }
+          }
+        }
       }
     }
     electron_trigmatch.push_back(eltrig);

@@ -127,6 +127,7 @@ void GenWeightsToFlatWeights::beginRun(const edm::Run& run, const edm::EventSetu
         cout << "@@@ Skipping PDF weight " << name << " since the first weight group is already set " << endl;
         continue;
       }
+      cout<<"@@@ Inserting into PDF weight["<<(key_pdf_.size())<<"]("<<name<<") with key "<<keys[0]<<"-"<<keys[keys.size()-1]<<endl;
       key_pdf_.insert(keys.begin(), keys.end());
     }
     else if ( doSaveOthers_ ) {
